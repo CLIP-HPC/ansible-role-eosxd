@@ -1,0 +1,22 @@
+---
+dependency:
+  name: gilt
+driver:
+  name: docker
+lint:
+  name: yamllint
+platforms:
+  - name: "instance-${INSTANCE_ID:-local}"
+    image: centos:7
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+scenario:
+  name: default
+verifier:
+  name: testinfra
+  lint:
+    name: flake8
+  options:
+    junit-xml: junit.xml
