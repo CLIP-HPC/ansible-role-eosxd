@@ -1,2 +1,27 @@
 ---
 # tasks file for role-eosxd
+- name: Check variables
+  assert:
+    that:
+      - "role_eosxd_mgmt_alias is defined"
+      - "role_eosxd_mount_point is defined"
+
+- include_tasks: repos.yml
+
+- name: Create config folder
+  file:
+    state: directory
+    path: "/etc/eos"
+
+- name: Configure eosxd
+  template:
+    src: fuse.eos.conf
+    dest: /etc/eos/fuse.eos.conf
+
+- name: Add/remove /etc/fstab entry
+  mount:
+    path: "{{ role_eosxd_mount_point }}"
+    src: eosxd
+    opts: fsname=eos
+    state: "{{ role_eosxd_fstab_state }}"
+    fstype: fuse

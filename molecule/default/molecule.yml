@@ -1,12 +1,12 @@
 ---
 dependency:
-  name: gilt
+  name: galaxy
 driver:
   name: docker
 lint:
   name: yamllint
 platforms:
-  - name: "instance-${INSTANCE_ID:-local}"
+  - name: instance-${INSTANCE_ID:-local}
     image: centos:7
 provisioner:
   name: ansible

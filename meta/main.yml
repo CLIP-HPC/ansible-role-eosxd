@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: role-eosxd
   author: Uemit Seren <uemit.seren@gmi.oeaw.ac.at>"
   description: Ansible role for setting up EOS fusex
   company: VBC

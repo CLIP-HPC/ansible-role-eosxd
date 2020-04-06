@@ -1,2 +1,6 @@
 ---
 # defaults file for role-eosxd
+role_eosxd_eos_upstream: true
+role_eosxd_epel_upstream: true
+role_eosxd_mount_point: /eos
+role_eosxd_fstab_state: "absent"
