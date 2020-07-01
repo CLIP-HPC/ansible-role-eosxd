@@ -18,6 +18,15 @@
     src: fuse.eos.conf
     dest: /etc/eos/fuse.eos.conf
 
+- name: Add eos.keytab file
+  template:
+    src: eos.keytab.j2
+    dest: "{{ role_eosxd_sss_keytab_file }}"
+    mode: "0400"
+    owner: root
+    group: root
+
+
 - name: Add/remove /etc/fstab entry
   mount:
     path: "{{ role_eosxd_mount_point }}"
