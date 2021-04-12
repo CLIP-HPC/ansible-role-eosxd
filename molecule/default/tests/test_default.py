@@ -12,3 +12,8 @@ def test_hosts_file(host):
     assert f.exists
     assert f.user == 'root'
     assert f.group == 'root'
+
+
+def test_pkgs(host):
+    package = host.package('eos-fusex')
+    assert package.is_installed

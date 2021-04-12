@@ -10,11 +10,13 @@
 
 - name: Create config folder
   file:
+    mode: 0755
     state: directory
     path: "/etc/eos"
 
 - name: Configure eosxd
   template:
+    mode: 0644
     src: fuse.eos.conf
     dest: /etc/eos/fuse.eos.conf
 
